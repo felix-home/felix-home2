@@ -2,8 +2,8 @@
 <html>
 <head>
 <script src="bmob-min.js"></script>
+<script type="text/javascript">Bmob.initialize("7f6188f706fb1fa6f4bf7536dee9c0e2", "556ffc74181e3c9dea2989f4786997eb");</script>
 <script type="text/javascript" src="jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="/query/query.js"></script>
 <!-- <script type="text/javascript">
 		$(document).ready(function(){
 			$("#query").click(function(){
@@ -13,10 +13,10 @@
 
 </script> -->
 <script>
-function myFunction()
-{
-alert("Hello World!");
-}
+// function myFunction()
+// {
+// alert("Hello World!");
+// }
 // function myQuery(){
 // 		var GameScore = Bmob.Object.extend("GameScore");
 //     	var query = new Bmob.Query(GameScore);
@@ -39,31 +39,32 @@ alert("Hello World!");
 // 	$('#123').val('456')
 // }
 // 
-// function myQuery(){
-// 		var GameScore = Bmob.Object.extend("GameScore");
-//     	var query = new Bmob.Query(GameScore);
-//     		query.get("27426451a4", {
-//       		success: function(object) {
-//       			console.log(object.get("score"));
-//        		// The object was retrieved successfully.
-//         	//alert(object.get("score"));
-//         	// document.getElementById("123").value=document.write(object.get("score"));;
-// 			$('#123').val(object.get("score"))
-//         	// 
-//       	},
-//       	error: function(object, error) {
-//         alert("query object fail");
-//       }
-//     });
-// }
+function myQuery(){
+		var GameScore = Bmob.Object.extend("GameScore");
+    	var query = new Bmob.Query(GameScore);
+    		query.get("27426451a4", {
+      		success: function(object) {
+      			console.log(object.get("score"));
+       		// The object was retrieved successfully.
+        	//alert(object.get("score"));
+        	// document.getElementById("123").value=document.write(object.get("score"));;
+        	//return object;
+			$('#123').val(object.get("score"))
+        	// 
+      	},
+      	error: function(object, error) {
+        alert("query object fail");
+      }
+    });
+}
 
 
 
 $(document).ready(function(){
-	//myQuery();
-	document.getElementById("123").value=query().get("score");
-//$('#123').val(query().get("score"));
+	myQuery();
+//document.getElementById("123").value=myQuery().value;
 });
+
 
 
 
@@ -72,6 +73,7 @@ $(document).ready(function(){
 
 <body>
 <button onclick="myFunction()">点击这里</button>
+<button onclick="myQuery()">查询</button>
 <form action="test.htm" method ="post" name ="myquery2">
 部门：	<select name="dept8" id="query">
 			<option value="技术部">技术部</option>
